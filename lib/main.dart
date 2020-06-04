@@ -3,6 +3,7 @@ import 'package:xmlflutter/page/CAPPErrorWidget.dart';
 import 'package:xmlflutter/page/CappViewpager4Widget.dart';
 import 'package:xmlflutter/page/FrameWidget.dart';
 import 'package:xmlflutter/page/ImCardWidget.dart';
+import 'package:xmlflutter/page/Test2Widget.dart';
 import 'package:xmlflutter/page/TestWidget.dart';
 
 import 'androidwidget/Button.dart';
@@ -115,6 +116,14 @@ class _MyHomePageState extends State<MyHomePage> {
               text: "Test Android Layout",
               onPressed: (){
                 navigationTo(TestWidget());
+              },
+            ),
+            Button(
+              layout_width: MATCH_PARENT,
+              layout_height: WRAP_CONTENT,
+              text: "Test2 Android Layout",
+              onPressed: (){
+                navigationTo(Test2Widget());
               },
             ),
             Button(

@@ -150,19 +150,38 @@ class ViewGroup extends StatelessWidget{
 //          ),
 //        );
       }
-      else
-        layout = Container(
-//        color: Colors.red,
-          width: layout_width,
-          height: layout_height,
-          color: backgroundColor,
+      else{
+        layout = Padding(
           padding: EdgeInsets.fromLTRB(
               paddingLeft, paddingTop, paddingRight, paddingBottom),
-          margin: EdgeInsets.fromLTRB(
-              marginLeft, marginTop, marginRight, marginBottom),
-          alignment: alignment,
-          child: child,
+          child: Align(
+            widthFactor: 1,
+            heightFactor: 1,
+            alignment: alignment,
+            child: child,
+          ),
         );
+        if (backgroundColor != null) {
+          layout = ColoredBox(color: backgroundColor, child: layout);
+        }
+//        if(layout_width != WRAP_CONTENT || layout_height != WRAP_CONTENT){
+//          var constraints = BoxConstraints.tightFor(width: layout_width, height: layout_height);
+//          layout = ConstrainedBox(constraints: constraints, child: layout);
+//        }
+//        layout = Container(
+////        color: Colors.red,
+//          width: layout_width,
+//          height: layout_height,
+//          color: backgroundColor,
+//          padding: EdgeInsets.fromLTRB(
+//              paddingLeft, paddingTop, paddingRight, paddingBottom),
+//          margin: EdgeInsets.fromLTRB(
+//              marginLeft, marginTop, marginRight, marginBottom),
+//          alignment: alignment,
+//          child: child,
+//        );
+      }
+
     }
     else if(layout_height == MATCH_PARENT){
       if(orientation == LinearLayout.VERTICAL && par_height == MATCH_PARENT && isLinearLayout){
@@ -181,19 +200,37 @@ class ViewGroup extends StatelessWidget{
           ),
         );
       }
-      else
-        layout = Container(
-//        color: Colors.red,
-          width: layout_width,
-          height: layout_height,
-          color: backgroundColor,
+      else{
+        layout = Padding(
           padding: EdgeInsets.fromLTRB(
               paddingLeft, paddingTop, paddingRight, paddingBottom),
-          margin: EdgeInsets.fromLTRB(
-              marginLeft, marginTop, marginRight, marginBottom),
-          alignment: alignment,
-          child: child,
+          child: Align(
+            widthFactor: 1,
+            heightFactor: 1,
+            alignment: alignment,
+            child: child,
+          ),
         );
+        if (backgroundColor != null) {
+          layout = ColoredBox(color: backgroundColor, child: layout);
+        }
+//        if(layout_width != WRAP_CONTENT || layout_height != WRAP_CONTENT){
+//          var constraints = BoxConstraints.tightFor(width: layout_width, height: layout_height);
+//          layout = ConstrainedBox(constraints: constraints, child: layout);
+//        }
+      }
+//        layout = Container(
+////        color: Colors.red,
+//          width: layout_width,
+//          height: layout_height,
+//          color: backgroundColor,
+//          padding: EdgeInsets.fromLTRB(
+//              paddingLeft, paddingTop, paddingRight, paddingBottom),
+//          margin: EdgeInsets.fromLTRB(
+//              marginLeft, marginTop, marginRight, marginBottom),
+//          alignment: alignment,
+//          child: child,
+//        );
     }
     else {
       layout = Padding(

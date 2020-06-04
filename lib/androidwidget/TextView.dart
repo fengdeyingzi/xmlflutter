@@ -30,6 +30,7 @@ class TextView extends StatelessWidget {
   double maxHeight;
   double minWidget;
   double maxWidget;
+  bool selectable;
 
   TextView(
       {this.text,
@@ -53,11 +54,13 @@ class TextView extends StatelessWidget {
       this.minWidget,
       this.maxWidget,
       this.minHeight,
-      this.maxHeight});
+      this.maxHeight,
+      this.selectable});
 
   @override
   Widget build(BuildContext context) {
     Widget layout = null;
+    if(selectable==null)selectable = false;
     TextAlign textAlign = TextAlign.start;
     Alignment alignment = Alignment.topLeft;
     double hor_gravity = -1.0;
@@ -284,7 +287,13 @@ paddingBottom: paddingBottom,
 //          margin: EdgeInsets.fromLTRB(
 //              marginLeft, marginTop, marginRight, marginBottom),
       gravity: gravity,
-      child: Text(
+      child: selectable?Text(text,
+      // autofocus: true,
+      style: TextStyle(
+          color: textColor,
+          fontSize: textSize,
+        ),
+        textAlign: textAlign,): Text(
         text,
         style: TextStyle(
           color: textColor,

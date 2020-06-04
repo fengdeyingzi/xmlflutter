@@ -87,7 +87,7 @@ class Button extends StatelessWidget {
         height: layout_height,
         color: backgroundColor,
         padding: EdgeInsets.fromLTRB(
-            paddingLeft+10, paddingTop, paddingRight+10, paddingBottom),
+            paddingLeft, paddingTop, paddingRight, paddingBottom),
         margin: EdgeInsets.fromLTRB(
             marginLeft, marginTop, marginRight, marginBottom),
 //        alignment: alignment,
