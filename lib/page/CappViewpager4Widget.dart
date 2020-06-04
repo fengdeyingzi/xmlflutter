@@ -77,13 +77,6 @@ class CappViewpager4Widget extends StatelessWidget {
                 ),
               ],
             ),
-            TextView(
-              layout_width:WRAP_CONTENT,
-              layout_height:WRAP_CONTENT,
-              gravity:Gravity.CENTER,
-//              textAlignment:TextAlignment.center,
-              text:"创造更多未来。",
-            ),
             View(
               layout_width:32,
               layout_height:16,
