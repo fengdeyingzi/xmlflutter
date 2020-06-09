@@ -50,16 +50,11 @@ class LayoutGravity extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return  ConstrainedBox(
-        constraints: BoxConstraints(
-          minWidth: double.infinity,
-          minHeight: double.infinity
-        ),
-        child: Align(
-          widthFactor: 1.0,
-          heightFactor: 1.0,
-          child: child,
-        )
+    return  ColoredBox(
+      color: Colors.grey[200],
+      child: Align(
+            child: child,
+          ),
     );
   }
 

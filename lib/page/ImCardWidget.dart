@@ -36,7 +36,7 @@ class ImCardWidget extends StatelessWidget {
               children:[
                 FrameLayout(
                   layout_width:MATCH_PARENT,
-                  layout_height:WRAP_CONTENT,
+                  layout_height:48,
 //gravity: Gravity.CENTER,
 //                  backgroundColor: Colors.red,
                   children:[
@@ -70,9 +70,7 @@ class ImCardWidget extends StatelessWidget {
                       orientation:LinearLayout.HORIZONTAL,
                       gravity:Gravity.CENTER,
                       children:[
-                        ColoredBox(
-                          color: Colors.green,
-                          child: Align(
+                        Align(
                             widthFactor: 1,
                             heightFactor: 1,
                             child: Row(
@@ -85,7 +83,7 @@ class ImCardWidget extends StatelessWidget {
 //                                  backgroundColor: Colors.yellow,
                                   layout_width:22,
                                   layout_height:22,
-                                  src:DrawableUtil.getDrawable(context, "toolbar_back"),
+                                  src:DrawableUtil.getDrawable(context, "返回"),
                                 ),
                                 TextView(
                                   layout_width:WRAP_CONTENT,
@@ -95,7 +93,7 @@ class ImCardWidget extends StatelessWidget {
                                 ),
                               ],
                             ),
-                          ),
+
                         ),
                         View(
                           layout_width:WRAP_CONTENT,
@@ -105,16 +103,18 @@ class ImCardWidget extends StatelessWidget {
                     ),
 
 
-                    TextView(
-                      layout_width:MATCH_PARENT,
-                      layout_height:WRAP_CONTENT,
-                      ellipsize:TextUtils.TruncateAt_END,
-                      gravity:Gravity.CENTER,
-                      backgroundColor: Colors.yellow,
-                      layout_gravity:Gravity.CENTER,
-                      text:StringUtil.getString(context, "title_imcard"),
-                      singleLine:true,
-                    ),
+
+                      TextView(
+                        layout_width:MATCH_PARENT,
+                        layout_height:WRAP_CONTENT,
+                        ellipsize:TextUtils.TruncateAt_END,
+                        gravity:Gravity.CENTER,
+//                      backgroundColor: Colors.yellow,
+                        layout_gravity:Gravity.CENTER,
+                        text:StringUtil.getString(context, "title_imcard"),
+                        singleLine:true,
+                      ),
+
                   ],
                 ),
               ],
@@ -205,7 +205,7 @@ class ImCardWidget extends StatelessWidget {
                 Button(
                   layout_width:MATCH_PARENT,
                   layout_height:WRAP_CONTENT,
-                  background:DrawableUtil.getDrawable(context, "button_round_message"),
+//                  background:DrawableUtil.getDrawable(context, "button_round_message"),
                   text:StringUtil.getString(context, "btn_chat"),
                 ),
                 Button(

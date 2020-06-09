@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart' as material;
+import 'package:flutter/widgets.dart';
 
 import 'ViewGroup.dart';
 
@@ -28,9 +29,13 @@ class AppCompatCheckBox extends material.StatelessWidget{
 
   @override
   material.Widget build(material.BuildContext context) {
-    material.Widget layout = material.Checkbox(
+    material.Widget layout =
+    ConstrainedBox(
+      constraints: material.BoxConstraints(maxWidth: 32),
+    child:material.Checkbox(
       value: isChecked??false,
       onChanged: onChanged,
+    ),
     );
     if(text != null){
       layout = material.Row(children: [
@@ -72,14 +77,30 @@ class CheckBox extends material.StatelessWidget{
   //暂未实现
   int layout_gravity;
   material.Color backgroundColor;
+  String text;
   material.ValueChanged<bool> onChanged;
 
 
-  CheckBox({this.layout_width,this.layout_height,this.paddingLeft,this.paddingTop,this.paddingRight,this.paddingBottom,this.marginLeft,this.marginTop,this.marginRight, this.marginBottom,this.isChecked,this.backgroundColor,this.onChanged});
+  CheckBox({this.layout_width,this.layout_height,this.paddingLeft,this.paddingTop,this.paddingRight,this.paddingBottom,this.marginLeft,this.marginTop,this.marginRight, this.marginBottom,this.isChecked,this.backgroundColor,this.onChanged,this.text});
 
 
   @override
   material.Widget build(material.BuildContext context) {
+    material.Widget layout =
+    ConstrainedBox(
+      constraints: material.BoxConstraints(maxWidth: 32),
+      child:material.Checkbox(
+        value: isChecked??false,
+        onChanged: onChanged,
+      ),
+    );
+    if(text != null){
+      layout = material.Row(children: [
+        layout, material.Text(text, style: material.TextStyle(
+            fontSize: 14
+        ),)
+      ],);
+    }
     return ViewGroup(
       layout_width: layout_width,
       layout_height: layout_height,
@@ -92,10 +113,7 @@ class CheckBox extends material.StatelessWidget{
       marginRight: marginRight,
       marginBottom: marginBottom,
       backgroundColor: backgroundColor,
-      child: material.Checkbox(
-      value: isChecked??false,
-      onChanged: onChanged,
-    ),);
+      child: layout,);
   }
 
 }

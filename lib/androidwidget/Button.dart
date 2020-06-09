@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:xmlflutter/androidwidget/ViewGroup.dart';
 
 import 'View.dart';
 
@@ -53,11 +54,27 @@ class Button extends StatelessWidget {
     if(marginBottom == null){
       marginBottom = 0;
     }
+    layout = RaisedButton(
+      onPressed: () {
+        if(onPressed!=null) onPressed();
+      },
+      child: Text(text),
+    );
+    if(layout_width == MATCH_PARENT || layout_height == MATCH_PARENT){
+      layout = ConstrainedBox(
+        constraints: BoxConstraints(
+          minWidth: layout_width??0,
+          minHeight: layout_height??0
+        ),
+        child: layout,
+      );
+    }
 
+    /*
     if (layout_width == WRAP_CONTENT) {
       layout = Padding(
         padding: EdgeInsets.fromLTRB(
-            paddingLeft+10, paddingTop, paddingRight+10, paddingBottom),
+            paddingLeft+5, paddingTop, paddingRight+5, paddingBottom),
         child: Align(
           widthFactor: 1,
           heightFactor: 1,
@@ -100,6 +117,22 @@ class Button extends StatelessWidget {
       );
     }
     return layout;
+     */
+    return ViewGroup(
+      layout_width: layout_width,
+      layout_height: layout_height,
+      paddingLeft: paddingLeft+4,
+      paddingRight: paddingRight+4,
+      paddingTop: paddingTop,
+      paddingBottom: paddingBottom,
+      marginTop: marginTop,
+      marginLeft: marginLeft,
+      marginRight: marginRight,
+      marginBottom: marginBottom,
+      layout_gravity: layout_gravity,
+      backgroundColor: backgroundColor,
+      child: layout,
+    );
   }
 
 

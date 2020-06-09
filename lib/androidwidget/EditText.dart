@@ -78,9 +78,9 @@ class EditText extends StatelessWidget {
     return ViewGroup(
       layout_width: layout_width,
       layout_height: layout_height,
-      paddingLeft: paddingLeft,
+      paddingLeft: paddingLeft??0.0+4,
       paddingTop: paddingTop,
-      paddingRight: paddingRight,
+      paddingRight: paddingRight??0.0+4,
       paddingBottom: paddingBottom,
       marginLeft: marginLeft,
       marginTop: marginTop,

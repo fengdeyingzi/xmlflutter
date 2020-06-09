@@ -12,7 +12,14 @@ import '../androidwidget/View.dart';
 import '../androidwidget/ScrollView.dart';
 
 
-class Test2Widget extends StatelessWidget{
+class Test2Widget extends StatefulWidget{
+  @override
+  _Test2WidgetState createState() => _Test2WidgetState();
+}
+
+class _Test2WidgetState extends State<Test2Widget> {
+  bool isCheck = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(appBar: AppBar(title: Text("test2"),),
@@ -61,7 +68,13 @@ class Test2Widget extends StatelessWidget{
             AppCompatCheckBox(
                 layout_width:WRAP_CONTENT,
                 layout_height:WRAP_CONTENT,
-                 text:"不转换英文字符",
+                isChecked: isCheck,
+                onChanged: (value){
+                  setState(() {
+                    isCheck = value;
+                  });
+                },
+                text:"不转换英文字符",
             ),
               ],
           ),
@@ -179,5 +192,4 @@ class Test2Widget extends StatelessWidget{
     ),
     );
   }
-
 }

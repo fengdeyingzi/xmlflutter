@@ -33,8 +33,8 @@ class ViewGroup extends StatelessWidget{
     Alignment alignment = Alignment.topLeft;
     double hor_gravity = -1.0;
     double ver_gravity = -1.0;
-    final int orientation = LayoutOrientation.of(context).orientation;
-    final bool isLinearLayout = LayoutOrientation.of(context).isLinearLayout;
+    final int orientation = LayoutOrientation.of(context)?.orientation??LinearLayout.VERTICAL;
+    final bool isLinearLayout = LayoutOrientation.of(context).isLinearLayout??false;
     final double par_width = LayoutOrientation.of(context).layout_width;
     final double par_height = LayoutOrientation.of(context).layout_height;
     print("orientation = ${orientation} layout_width = ${par_width} layout_height = ${par_height}");
@@ -151,12 +151,13 @@ class ViewGroup extends StatelessWidget{
 //        );
       }
       else{
+
         layout = Padding(
           padding: EdgeInsets.fromLTRB(
               paddingLeft, paddingTop, paddingRight, paddingBottom),
           child: Align(
-            widthFactor: 1,
-            heightFactor: 1,
+//            widthFactor: 1,
+//            heightFactor: 1,
             alignment: alignment,
             child: child,
           ),
@@ -164,6 +165,9 @@ class ViewGroup extends StatelessWidget{
         if (backgroundColor != null) {
           layout = ColoredBox(color: backgroundColor, child: layout);
         }
+//        else{
+//          layout = ColoredBox(color: Colors.yellow, child: layout);
+//        }
 //        if(layout_width != WRAP_CONTENT || layout_height != WRAP_CONTENT){
 //          var constraints = BoxConstraints.tightFor(width: layout_width, height: layout_height);
 //          layout = ConstrainedBox(constraints: constraints, child: layout);
@@ -280,6 +284,7 @@ class ViewGroup extends StatelessWidget{
         if(layout_gravity == Gravity.CENTER){
           layout = LayoutGravityHorizontal(child: layout,);
         }
+
       }
       else if(isLinearLayout && orientation == LinearLayout.HORIZONTAL){
         if(layout_gravity == Gravity.CENTER){
