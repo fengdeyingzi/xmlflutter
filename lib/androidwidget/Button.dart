@@ -55,6 +55,12 @@ class Button extends StatelessWidget {
       marginBottom = 0;
     }
     layout = RaisedButton(
+      color: backgroundColor,
+      elevation: backgroundColor==null?2:0,
+      focusElevation: backgroundColor==null?3:0,
+      highlightElevation: backgroundColor==null?3:0,
+        splashColor:backgroundColor??null,
+      highlightColor: backgroundColor??Colors.transparent,
       onPressed: () {
         if(onPressed!=null) onPressed();
       },

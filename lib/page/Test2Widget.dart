@@ -100,6 +100,7 @@ class _Test2WidgetState extends State<Test2Widget> {
               layout_width:WRAP_CONTENT,
               layout_height:WRAP_CONTENT,
               text:"转换为gb",
+            backgroundColor: Colors.yellow,
           ),
           Button(
               layout_width:WRAP_CONTENT,
